@@ -1,0 +1,6 @@
+label: Bibliography
+type: files
+multiple: false
+query: page.files.filterBy('extension', 'json')
+uploads:
+  template: csl-json

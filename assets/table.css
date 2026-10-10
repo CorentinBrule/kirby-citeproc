@@ -1,0 +1,88 @@
+.biblio-table {
+  width: 100%;
+  
+  tbody > tr:nth-child(odd) {
+    background: gainsboro;
+  }
+  
+  th {
+    cursor: pointer;
+
+    &.sort-date {
+      width: 8em;
+      min-width: 8em;
+      text-align: right;
+    }
+
+    &.sort-type {
+      width: 8em;
+      min-width: 8em;
+    }
+
+    &.sort-title {
+      width: 60%;
+    }
+
+    &.sort-author {
+      width: 40%;
+    }
+  
+    &.no-sort {
+      pointer-events: none;
+    }
+  }
+  /* arrow sort indicator */
+  th::after, th::before{
+    transition: color 0.2s ease-in-out;
+    font-size: 1.2em;
+    color: transparent;
+  }
+    th::after {
+    margin-left: 3px;
+    content: '\025B8';
+  }
+  th:hover::after {
+    color: inherit;
+  }
+  th.dir-d::after {
+    color: inherit;
+    content: '\025BE';
+  }
+  th.dir-u::after {
+    color: inherit;
+    content: '\025B4';
+  }
+
+  /* cells */
+  td {
+    padding-left: 1em;
+    padding-right: 1em;
+    button{
+      width: 1em;
+      height: 1em;
+      padding: 0;
+    } 
+    svg{
+      width: 100%;
+      height: 100%;
+    }
+
+    &.bib-id{
+      padding: 0;
+    }
+    &.bib-date {
+      text-align: right;
+    }
+    &.bib-type {
+      font-size: 0.6em;
+      white-space: pre;
+      padding: 0.5em;
+      text-align: center;
+    }
+  }
+}
+
+.table-search {
+  width: 100%;
+  text-align: center;
+}
