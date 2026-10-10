@@ -1,13 +1,13 @@
 {
-    "name": "corentinbrule/citeproc",
+    "name": "corentinbrule/kirby-citeproc",
     "repositories": [
         {
-            "type": "composer",
-            "url": "https://repo.packagist.org"
+            "type": "vcs",
+            "url": "https://github.com/corentinbrule/citeproc-php"
         }
     ],
     "require": {
-        "seboettg/citeproc-php": "^2.7",
+        "pkp/citeproc-php": "dev-kirby-patch",
         "seboettg/collection": "^3.1",
         "citation-style-language/locales": "0.0.*"
     },
