@@ -12,16 +12,13 @@ use Seboettg\CiteProc\StyleSheet;
 use Seboettg\CiteProc\CiteProc;
 use Kirby\Filesystem\F;
 use Kirby\Cms\Page;
-use Kirby\Cms\Site;
-use Kirby\Http\Remote;
 use Kirby\Data\Json;
 
 Kirby::plugin('corentinbrule/citeproc', [
     'options' => [
-        'data_file_name' => 'esadpau-test-biblio2.json',
-        // 'csl_name' => 'ESADP-iso-690-full-note-with-ibid'
-        'csl_name' => 'iso690-note-fr-test',
-        // 'csl_file' => 'ESADP-iso-690-full-note-with-ibid'
+        'data_file_name' => '',
+        'csl_name' => '',
+        'csl_location' => 'en-EN',
         'additional_markup' => [],
         'additional_markup_default' => true
     ],
@@ -47,7 +44,8 @@ Kirby::plugin('corentinbrule/citeproc', [
                         }
                     }
                     $style = StyleSheet::loadStyleSheet(option('corentinbrule.citeproc.csl_name'));
-                    $citeProc = new CiteProc($style, "fr-FR", $additionalMarkup);
+                    $location = option('corentinbrule.citeproc.csl_location');
+                    $citeProc = new CiteProc($style, $location, $additionalMarkup);
                     return $citeProc->render($data, "citation", json_decode('[{"id":"' . $tag->value . '"}]'));
                 }
             }
@@ -64,7 +62,8 @@ Kirby::plugin('corentinbrule/citeproc', [
                     }
                     $style = StyleSheet::loadStyleSheet(option('corentinbrule.citeproc.csl_name'));
                     $additionalMarkup = option('corentinbrule.citeproc.additional_markup');
-                    $citeProc = new CiteProc($style, "fr-FR", $additionalMarkup);
+                    $location = option('corentinbrule.citeproc.csl_location');
+                    $citeProc = new CiteProc($style, $location, $additionalMarkup);
                     return $citeProc->render($data, "bibliography");
                 }
             }

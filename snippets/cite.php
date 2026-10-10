@@ -3,11 +3,8 @@
 use Seboettg\CiteProc\StyleSheet;
 use Seboettg\CiteProc\CiteProc;
 
-// $data:Array input snippet
-// $key:String input snippet
-
 $style = StyleSheet::loadStyleSheet(option('corentinbrule.citeproc.csl_name'));
-$citeProc = new CiteProc($style, "fr-FR");
+$citeProc = new CiteProc($style, option('corentinbrule.citeproc.csl_location'));
 
 echo $citeProc->render($data, "citation", json_decode('[{"id":"' . $key .'"}]'));
 ?>
